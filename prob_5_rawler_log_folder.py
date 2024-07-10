@@ -5,11 +5,9 @@ class Solution:
     def minOperations(self, logs: list[str]) -> int:
         time = 0
         for item in logs:
-            if item == "./":
-                pass
-            elif item == "../" and time > 0:
+            if item == "../" and time > 0:
                 time -= 1
-            else:
+            elif item != "../" and item != "./" :
                 time += 1
         
         return time
@@ -19,3 +17,4 @@ sol = Solution()
 print(sol.minOperations(["d1/","d2/","../","d21/","./"]))
 print(sol.minOperations(["d1/","d2/","./","d3/","../","d31/"]))
 print(sol.minOperations(["d1/","../","../","../"]))
+print(sol.minOperations(["./","../","./"]))
